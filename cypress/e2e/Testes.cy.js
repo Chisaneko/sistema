@@ -24,7 +24,7 @@ describe('Login/ Testes de credênciais', () => {
 describe('Produtos/ Funcionalidade', () => {
   it('Voltar', () => {
     cy.visit('http://127.0.0.1:5500//produtos.html?teste=123')
-    cy.get('#collapsibleNavbar').click()
+    cy.get('a.nav-link').click()
     cy.url().should('include', 'login.html')
   }),
   it('Criar', () => {
@@ -95,7 +95,6 @@ describe('Produtos/ Funcionalidade', () => {
       cy.get('#btn-adicionar').click()
       cy.get('#btn-adicionar').click()
       testarModalProduto('Banana','Banana','Banana','Banana','2024-06-26')
-      cy.get('#btn-salvar').click()
       cy.get('#btn-salvar').click()
       cy.get('#btn-sair').click()
       cy.get('td:first-child').invoke('val').should('match', /^\d+$/)
